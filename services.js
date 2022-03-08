@@ -6,53 +6,62 @@ const app = {
 		"appname1": {
 			"title": {
 				"en": {
-					"text": "english title",
-					"audio": ""
+					"text": "english title 1",
+					"audio": "./audios/sample.m4a"
 				},
 				"ka": {
 					"text": "kannada ಶೀರ್ಷಿಕೆ 1",
-					"audio": ""
+					"audio": "./audios/sample-ka.m4a"
 				}
 			},
 			"description": {
 				"en": {
-					"text": "in english",
-					"audio": ""
+					"text": "in english 1",
+					"audio": "./audios/sample.m4a"
 				},
 				"ka": {
 					"text": "in kannada",
-					"audio": ""
+					"audio": "./audios/sample-ka.m4a"
 				}
 			},
 			"icon": {
 				"url": "./images/sleepy-education-1.png",
-				"alt": ""
+				"alt": "icon"
 			},
 			"link": {
 				"url": "Link",
-				"text": "link text"
+				"text": {
+					"en": {
+						"txt": "link text",
+						"audio": "./audios/sample.m4a"
+					},
+					"ka": {
+						"txt": "link text",
+						"audio": "./audios/sample-ka.m4a"
+					}
+				}
 			}
 		},
 
 		"appname2": {
 			"title": {
 				"en": {
-					"text": "english title",
-					"audio": ""
+					"text": "english title 2",
+					"audio": "./audios/sample.m4a"
 				},
 				"ka": {
-					"text": "kannada ಶೀರ್ಷಿಕೆ 1",
-					"audio": ""
+					"text": "kannada ಶೀರ್ಷಿಕೆ 2",
+					"audio": "./audios/sample-ka.m4a"
 				}
 			},
 			"description": {
 				"en": {
-					"text": "in english",
-					"audio": ""
+					"text": "in english 2",
+					"audio": "./audios/sample.m4a"
 				},
 				"ka": {
-					"text": "in kannada",
-					"audio": ""
+					"text": "in kannada 2",
+					"audio": "./audios/sample-ka.m4a"
 				}
 			},
 			"icon": {
@@ -61,7 +70,16 @@ const app = {
 			},
 			"link": {
 				"url": "Link",
-				"text": "link text"
+				"text": {
+					"en": {
+						"txt": "link text",
+						"audio": "./audios/sample.m4a"
+					},
+					"ka": {
+						"txt": "link text",
+						"audio": "./audios/sample-ka.m4a"
+					}
+				}
 			}
 		}
 	}

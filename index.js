@@ -13,6 +13,15 @@ function audioEl(src){
 	return audioEl;
 }
 
+function cardEl(imgUrl, title, description, link, linkText) {
+	`<div class="card">
+		<img src="${imgUrl}" alt="" class="card-img-top">
+		<div class="card-body">
+			<h3>${title}</h3>
+			<a target="_blank" href="${link}">${linkText}</a>
+		</div>
+	</div>`
+}
 
 function setupBranding() {
 	const brandText = app.brand;
@@ -49,6 +58,31 @@ function setupLanguages() {
 	langSwitch.appendChild(langSelectEl);
 }
 
+function handleAudioPlay(e) {
+	console.log("button clicked", e);
+	var audioUrl = e.target.dataset['audio'];
+
+	var audioEl = document.querySelector('#screen-reader');
+	audioEl.src = audioUrl;
+	audioEl.play();
+}
+function cardEl(appMeta, lang) {
+	var {icon, title, description, link} = appMeta;
+	return `<div class="card">
+		<img src="${icon.url}" alt="${icon.alt}" class="card-img-top">
+		<div class="card-body">
+			<div class="d-flex"><h3>${title[lang].text}</h3> 
+			<button type="button" class="btn btn-outline-info btn-sm audio-play" onclick="handleAudioPlay(event)" data-audio="${title[lang].audio}">🔊</button>
+			</div>
+			<p>${description[lang].text} 
+			<button type="button" class="btn btn-outline-info btn-sm audio-play" onclick="handleAudioPlay(event)" data-audio="${description[lang].audio}">🔊</button>
+			</p>
+			<a target="_blank" href="${link.url}">${link.text[lang].txt}</a>
+			<button type="button" class="btn btn-outline-info btn-sm audio-play" onclick="handleAudioPlay(event)" data-audio="${link.text[lang].audio}">🔊</button>
+		</div>
+	</div>`
+}
+
 function setupServices() {
 	const services = app.services;
 	const servicesIndex = Object.keys(services);
@@ -56,24 +90,8 @@ function setupServices() {
 	servicesContainer.innerHTML = "";
 
 	servicesIndex.forEach(function(app) {
-		var appContainer = document.createElement('div');
-		appContainer.classList.add('card');
-		var appImage = imageEl(services[app].icon['url'], services[app].icon['alt']);
-		appImage.classList.add('card-img-top');
-		var appName = document.createElement('h3');
-
-		appName.innerText = services[app].title[selectedLanguage].text || services[app].title[selectedLanguage].text;
-		var link = document.createElement('a');
-		link.target = '_blank';
-		link.innerText = services[app].link['text'];
-		link.href = services[app].link['url'];
-		appContainer.appendChild(appImage);
-		var cardBody = document.createElement('div');
-		cardBody.classList.add('card-body');
-		cardBody.appendChild(appName);
-		cardBody.appendChild(link);
-		appContainer.appendChild(cardBody);
-		servicesContainer.appendChild(appContainer);
+		var card = cardEl(services[app], selectedLanguage);
+		servicesContainer.insertAdjacentHTML('beforeend', card);
 	});
 
 }
