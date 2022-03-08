@@ -1,0 +1,17 @@
+.brand {
+	display: flex;
+}
+
+.brand img {
+	width: 30px;
+}
+
+.card img {
+	width: 300px;
+	height: auto;
+	margin: auto;
+}
+
+.card-body {
+	margin: auto;
+}
